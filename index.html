@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini App Gue</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: system-ui, sans-serif;
+      background: var(--tg-theme-bg-color, #ffffff);
+      color: var(--tg-theme-text-color, #000000);
+      padding: 20px;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    h1 { font-size: 24px; margin-bottom: 10px; }
+    p { color: var(--tg-theme-hint-color, #888); margin-bottom: 20px; }
+    .card {
+      background: var(--tg-theme-secondary-bg-color, #f5f5f5);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 15px;
+    }
+    button {
+      background: var(--tg-theme-button-color, #0088cc);
+      color: var(--tg-theme-button-text-color, #ffffff);
+      border: none;
+      padding: 14px 30px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      width: 100%;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    button:active { opacity: 0.7; }
+    #counter { font-size: 48px; font-weight: 700; margin: 10px 0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🚀 Mini App Pertama</h1>
+    <p>Ini jalan di dalam Telegram!</p>
+
+    <div class="card">
+      <p>Klik tombol di bawah:</p>
+      <div id="counter">0</div>
+      <button onclick="handleClick()">➕ Tambah</button>
+    </div>
+
+    <div class="card">
+      <button onclick="showAlert()">📢 Tampilkan Alert</button>
+    </div>
+
+    <div class="card">
+      <button onclick="sendData()">📤 Kirim Data ke Bot</button>
+    </div>
+  </div>
+
+  <script>
+    // ===== INISIALISASI TELEGRAM SDK =====
+    const tg = window.Telegram.WebApp;
+    tg.ready(); // Kasih tau Telegram kalo app udah siap
+    tg.expand(); // Expand ke full screen
+
+    // ===== COUNTER =====
+    let count = 0;
+    function handleClick() {
+      count++;
+      document.getElementById('counter').textContent = count;
+      tg.HapticFeedback.impactOccurred('light'); // Getar dikit (buat HP)
+    }
+
+    // ===== SHOW ALERT =====
+    function showAlert() {
+      tg.showAlert('Halo dari Mini App!');
+    }
+
+    // ===== KIRIM DATA KE BOT =====
+    function sendData() {
+      const data = JSON.stringify({ action: 'click', counter: count });
+      tg.sendData(data);
+      tg.showAlert('Data terkirim!');
+    }
+
+    // ===== AMBIL DATA USER (OPSIONAL) =====
+    console.log('User:', tg.initDataUnsafe?.user);
+  </script>
+</body>
+</html>
