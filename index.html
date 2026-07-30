@@ -3,12 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://richinfo.co/richpartners/telegram/js/tg-ob.js"></script>          
 <script>
-  window.TelegramAdsController = new TelegramAdsController();
-  window.TelegramAdsController.initialize({
-    pubId: "1018738",
-    appId: "8322",
+  document.addEventListener('DOMContentLoaded', function() {
+    var script = document.createElement('script');
+    script.src = 'https://richinfo.co/richpartners/telegram/js/tg-ob.js';
+    script.onload = function() {
+      if (typeof TelegramAdsController !== 'undefined') {
+        var controller = new TelegramAdsController();
+        controller.initialize({
+          pubId: "1018738",
+          appId: "8323",
+        });
+        controller.displayAd('ad-container');
+      }
+    };
+    document.head.appendChild(script);
   });
 </script>
 <title>🎡 Crypto Spin Wheel</title>
