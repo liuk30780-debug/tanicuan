@@ -1,294 +1,330 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CryptoInsight - Berita Crypto</title>
-<!-- ===== META CRYPTO ===== -->
-<meta name="description" content="Berita Cryptocurrency, Bitcoin, Ethereum, Altcoin, DeFi, NFT terkini">
-<meta name="keywords" content="Crypto, Bitcoin, Ethereum, Altcoin, DeFi, NFT, Blockchain">
-<meta property="og:title" content="CryptoInsight - Berita Crypto">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://namablog.blogspot.com/">
-<meta property="og:description" content="Berita Cryptocurrency terkini">
-<meta name="theme-color" content="#f7931a">
-<script src="https://richinfo.co/richpartners/telegram/js/tg-ob.js"></script>          
-<script>
-  window.TelegramAdsController = new TelegramAdsController();
-  window.TelegramAdsController.initialize({
-    pubId: "1018738",
-    appId: "8322",
-  });
-</script>
-
+<title>🎡 Crypto Spin Wheel</title>
 <style>
-/* ===== RESET & BASE ===== */
-* { margin:0; padding:0; box-sizing:border-box; }
-body { background:#0b0e14; color:#d6dee7; font-family: Arial, sans-serif; line-height:1.7; }
-a { color:#f7931a; text-decoration:none; }
-a:hover { color:#ffb347; }
-
-/* ===== HEADER ===== */
-.header { background:#111821; border-bottom:3px solid #f7931a; padding:20px 15px; text-align:center; }
-.header h1 { font-size:28px; font-weight:800; color:#f7931a; text-transform:uppercase; letter-spacing:1px; }
-.header .desc { color:#8896a8; font-size:13px; margin-top:3px; }
-
-/* ===== NAVIGASI ===== */
-.nav { background:#141b24; padding:10px 15px; border-bottom:1px solid #1f2937; text-align:center; overflow-x:auto; white-space:nowrap; }
-.nav a { color:#b0c4d8; font-size:12px; font-weight:600; padding:4px 14px; border-radius:30px; border:1px solid transparent; display:inline-block; margin:2px; text-transform:uppercase; }
-.nav a:hover, .nav a.active { color:#0b0e14; background:#f7931a; border-color:#f7931a; }
-
-/* ===== WRAPPER ===== */
-.wrapper { max-width:1100px; margin:0 auto; padding:20px; }
-.main { float:left; width:65%; }
-.sidebar { float:right; width:32%; }
-.clear { clear:both; }
-@media screen and (max-width:880px){ .main, .sidebar { float:none; width:100%; } }
-
-/* ===== POST CARD ===== */
-.post { background:#111a24; border:1px solid #1f2937; border-radius:16px; padding:22px; margin-bottom:25px; }
-.post:hover { border-color:#f7931a; }
-.post .tag { display:inline-block; background:#f7931a; color:#0b0e14; border-radius:40px; padding:2px 14px; font-weight:700; text-transform:uppercase; font-size:11px; margin:0 2px 8px 0; }
-.post h2 { color:#e6edf5; font-size:22px; margin-bottom:10px; }
-.post h2 a { color:#e6edf5; }
-.post h2 a:hover { color:#f7931a; }
-.post-body { color:#c8d2de; font-size:15px; line-height:1.8; }
-.post-body img { width:100%; border-radius:12px; margin:10px 0; }
-.post-body p { margin-bottom:1em; }
-.read-more { display:inline-block; background:#f7931a; color:#0b0e14; padding:5px 18px; border-radius:30px; font-weight:700; font-size:13px; margin-top:8px; }
-.read-more:hover { background:#ffb347; color:#0b0e14; }
-
-/* ===== SIDEBAR WIDGET ===== */
-.widget { background:#111a22; border-radius:14px; padding:18px; border:1px solid #1f2937; margin-bottom:20px; }
-.widget h2 { color:#f7931a; font-size:15px; text-transform:uppercase; border-bottom:2px solid #1f2937; padding-bottom:10px; margin-bottom:12px; }
-.widget ul { list-style:none; padding:0; }
-.widget li { padding:6px 0; border-bottom:1px solid #1c2530; font-size:14px; }
-.widget li a { color:#b0c4d8; }
-.widget li a:hover { color:#f7931a; }
-.tag-cloud { display:flex; flex-wrap:wrap; gap:5px; }
-.tag-cloud a { background:#1e2632; color:#b0c4d8; padding:4px 14px; border-radius:30px; font-size:12px; font-weight:600; border:1px solid #2a3340; display:inline-block; }
-.tag-cloud a:hover { background:#f7931a; color:#0b0e14; border-color:#f7931a; }
-
-/* ===== PAGINATION ===== */
-.pager { text-align:center; padding:15px 0; }
-.pager a { background:#1e2632; padding:7px 20px; border-radius:30px; font-weight:600; margin:0 4px; border:1px solid #2a3340; color:#b0c4d8; display:inline-block; }
-.pager a:hover { background:#f7931a; color:#0b0e14; border-color:#f7931a; }
-
-/* ===== FOOTER ===== */
-.footer { background:#0d141c; text-align:center; padding:18px 0; border-top:1px solid #1f2937; margin-top:25px; color:#5a6a7a; font-size:13px; }
-
-/* ===== RESPONSIVE ===== */
-@media screen and (max-width:640px){
-  .header h1 { font-size:20px; }
-  .post { padding:14px; }
-  .post h2 { font-size:17px; }
-  .nav a { font-size:10px; padding:3px 10px; }
-  .widget { padding:12px; }
-  .widget h2 { font-size:13px; }
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:linear-gradient(135deg,#0b0e14 0%,#1a1f2e 100%);
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:'Segoe UI',Arial,sans-serif;
+  padding:20px;
 }
+.container{
+  background:#111a24;
+  border-radius:24px;
+  padding:30px;
+  max-width:600px;
+  width:100%;
+  border:1px solid #1f2a36;
+  box-shadow:0 20px 60px rgba(0,0,0,0.6);
+}
+h1{
+  text-align:center;
+  color:#f7931a;
+  font-size:28px;
+  font-weight:800;
+  margin-bottom:5px;
+  letter-spacing:1px;
+}
+.sub{
+  text-align:center;
+  color:#8896a8;
+  font-size:14px;
+  margin-bottom:20px;
+}
+.wheel-wrapper{
+  position:relative;
+  width:100%;
+  max-width:400px;
+  margin:0 auto;
+}
+canvas{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:50%;
+  box-shadow:0 0 40px rgba(247,147,26,0.15),inset 0 0 40px rgba(0,0,0,0.3);
+  cursor:pointer;
+  transition:0.3s;
+}
+canvas:hover{box-shadow:0 0 60px rgba(247,147,26,0.25),inset 0 0 40px rgba(0,0,0,0.3)}
+.pointer{
+  position:absolute;
+  top:-12px;
+  left:50%;
+  transform:translateX(-50%);
+  width:0;
+  height:0;
+  border-left:20px solid transparent;
+  border-right:20px solid transparent;
+  border-top:30px solid #f7931a;
+  filter:drop-shadow(0 4px 10px rgba(247,147,26,0.5));
+  z-index:10;
+}
+.controls{
+  display:flex;
+  gap:12px;
+  margin-top:25px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.btn{
+  padding:12px 32px;
+  border:none;
+  border-radius:40px;
+  font-size:16px;
+  font-weight:700;
+  cursor:pointer;
+  transition:0.3s;
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+}
+.btn-spin{
+  background:linear-gradient(135deg,#f7931a,#ffb347);
+  color:#0b0e14;
+  box-shadow:0 4px 20px rgba(247,147,26,0.3);
+}
+.btn-spin:hover{transform:scale(1.03);box-shadow:0 6px 30px rgba(247,147,26,0.4)}
+.btn-spin:disabled{opacity:0.5;cursor:not-allowed;transform:none}
+.btn-reset{
+  background:#1e2632;
+  color:#b0c4d8;
+  border:1px solid #2a3340;
+}
+.btn-reset:hover{background:#2a3340;transform:scale(1.02)}
+.result-box{
+  margin-top:20px;
+  padding:16px 20px;
+  background:#141b24;
+  border-radius:14px;
+  border:1px solid #1f2a36;
+  text-align:center;
+  min-height:60px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+}
+.result-text{
+  font-size:22px;
+  font-weight:700;
+  color:#f7931a;
+}
+.result-sub{
+  font-size:13px;
+  color:#6f7e90;
+  margin-top:4px;
+}
+.history{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-top:10px;
+}
+.history span{
+  background:#1e2632;
+  color:#b0c4d8;
+  padding:3px 12px;
+  border-radius:20px;
+  font-size:12px;
+  border:1px solid #2a3340;
+}
+@keyframes pulse{
+  0%,100%{opacity:1}
+  50%{opacity:0.5}
+}
+.spinning .result-text{animation:pulse 0.5s ease-in-out infinite}
 </style>
 </head>
 <body>
+<div class="container">
+  <h1>🎡 Crypto Spin</h1>
+  <p class="sub">Putar roda & dapatkan hadiah crypto!</p>
 
-<!-- HEADER -->
-<div class="header">
-  <h1>CryptoInsight</h1>
-  <div class="desc">Berita Cryptocurrency, Bitcoin, Ethereum, Altcoin, DeFi, NFT Terkini</div>
-</div>
-<div class='separator' style='text-align:center; margin:18px 0;'>
-  <a href='https://10183.xml.4armn.com/direct-link-v2?pubid=1018738&siteid=403200&linkid=124192'>
-    <img alt='Open Resource' src='https://th.bing.com/th/id/OIP.PF2RX_zLWYi-3HDhHevA_AHaEQ?w=313&h=180&c=7&r=0&o=7&cb=ucfimg2&pid=1.7&rm=3&ucfimg=1'/>
-  </a>
-</div>
-
-<script src="https://richinfo.co/richpartners/pops/js/richads-pu-ob.js" data-pubid="1018738" data-siteid="403200" async data-cfasync="false"></script>
-
-<!-- NAVIGASI -->
-<div class="nav">
-  <a href="#" class="active">🏠 Home</a>
-  <a href="#">Bitcoin</a>
-  <a href="#">Ethereum</a>
-  <a href="#">Altcoin</a>
-  <a href="#">DeFi</a>
-  <a href="#">NFT</a>
-  <a href="#">News</a>
-</div>
-
-<!-- WRAPPER -->
-<div class="wrapper">
-
-  <!-- MAIN -->
-  <div class="main">
-
-    <!-- POST 1: BITCOIN -->
-    <div class="post">
-      <div>
-        <span class="tag">#Bitcoin</span>
-        <span class="tag">#Crypto</span>
-      </div>
-      <h2><a href="#">Bitcoin (BTC) Melonjak 15% dalam Sepekan</a></h2>
-      <div class="post-body">
-        <img src="https://images.unsplash.com/photo-1518546305927-5a555bb7020d?w=800" alt="Bitcoin">
-        <p style="font-size:18px;font-weight:bold;color:#f7931a;">🚀 Bitcoin kembali menjadi sorotan setelah harganya berhasil menembus level $72,000 dalam sepekan terakhir.</p>
-        <p>Pergerakan ini terjadi di tengah meningkatnya minat investor institusional dan arus masuk yang signifikan ke produk ETF Bitcoin spot di Amerika Serikat.</p>
-        <p>Data dari Glassnode menunjukkan bahwa alamat yang memiliki lebih dari 1.000 BTC telah menambah kepemilikan mereka sebesar 3% dalam 7 hari terakhir.</p>
-        <a href="#" class="read-more">Baca Selengkapnya →</a>
-      </div>
-    </div>
-
-    <!-- POST 2: ETHEREUM -->
-    <div class="post">
-      <div>
-        <span class="tag">#Ethereum</span>
-        <span class="tag">#Crypto</span>
-      </div>
-      <h2><a href="#">Ethereum (ETH) Siap Mengikuti Jejak Bitcoin?</a></h2>
-      <div class="post-body">
-        <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png?v=029" alt="Ethereum" style="width:300px;margin:10px auto;display:block;">
-        <p style="font-size:18px;font-weight:bold;color:#f7931a;">🔥 Ethereum menunjukkan sinyal bullish setelah berhasil bertahan di atas level $3,500.</p>
-        <p>Dengan semakin berkembangnya ekosistem Layer 2 dan meningkatnya adopsi DeFi, banyak analis memprediksi bahwa ETH akan segera mengikuti jejak Bitcoin menuju level tertinggi baru.</p>
-        <a href="#" class="read-more">Baca Selengkapnya →</a>
-      </div>
-    </div>
-
-    <!-- POST 3: ALTCOIN -->
-    <div class="post">
-      <div>
-        <span class="tag">#Altcoin</span>
-        <span class="tag">#Crypto</span>
-      </div>
-      <h2><a href="#">3 Altcoin Terbaik yang Siap Meledak di Bulan Ini</a></h2>
-      <div class="post-body">
-        <img src="https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=800" alt="Altcoin">
-        <p style="font-size:18px;font-weight:bold;color:#f7931a;">💎 Altcoin mulai menarik perhatian para investor dengan potensi keuntungan 3x - 10x.</p>
-        <p>Berikut adalah 3 altcoin yang memiliki fundamental kuat dan sedang dalam fase akumulasi:</p>
-        <ul style="color:#b0c4d8;padding-left:20px;">
-          <li><strong>Solana (SOL)</strong> - Prediksi $250-300</li>
-          <li><strong>Chainlink (LINK)</strong> - Prediksi $30-40</li>
-          <li><strong>Avalanche (AVAX)</strong> - Prediksi $65-80</li>
-        </ul>
-        <a href="#" class="read-more">Baca Selengkapnya →</a>
-      </div>
-    </div>
-
-    <!-- POST 4: DEFI -->
-    <div class="post">
-      <div>
-        <span class="tag">#DeFi</span>
-        <span class="tag">#Crypto</span>
-      </div>
-      <h2><a href="#">DeFi Summer 2.0? Total Value Locked (TVL) Mencapai $100 Miliar!</a></h2>
-      <div class="post-body">
-        <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800" alt="DeFi">
-        <p style="font-size:18px;font-weight:bold;color:#f7931a;">💰 DeFi kembali menjadi sorotan dengan Total Value Locked (TVL) yang menembus angka $100 miliar.</p>
-        <p>Ini adalah level tertinggi sejak tahun 2022, menandakan bahwa pasar DeFi kembali bergairah setelah melalui masa bearish yang panjang.</p>
-        <a href="#" class="read-more">Baca Selengkapnya →</a>
-      </div>
-    </div>
-
-    <!-- POST 5: NFT -->
-    <div class="post">
-      <div>
-        <span class="tag">#NFT</span>
-        <span class="tag">#Crypto</span>
-      </div>
-      <h2><a href="#">NFT Marketplace Bangkit Kembali! Volume Perdagangan Melonjak 60%</a></h2>
-      <div class="post-body">
-        <img src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=800" alt="NFT">
-        <p style="font-size:18px;font-weight:bold;color:#f7931a;">🎨 Pasar NFT menunjukkan tanda-tanda kebangkitan dengan volume perdagangan yang meningkat 60% dalam sebulan terakhir.</p>
-        <p>Blur, OpenSea, dan marketplace lainnya mencatat lonjakan aktivitas signifikan, didorong oleh proyek-proyek baru.</p>
-        <a href="#" class="read-more">Baca Selengkapnya →</a>
-      </div>
-    </div>
-
-    <!-- POST 6: CRYPTO NEWS -->
-    <div class="post">
-      <div>
-        <span class="tag">#News</span>
-        <span class="tag">#Crypto</span>
-      </div>
-      <h2><a href="#">Update Crypto Terkini: Regulasi, Adopsi, dan Proyek yang Harus Dipantau</a></h2>
-      <div class="post-body">
-        <img src="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?w=800" alt="Crypto News">
-        <p style="font-size:18px;font-weight:bold;color:#f7931a;">📰 Ringkasan berita crypto terbaru yang harus Anda ketahui hari ini.</p>
-        <p>Komisi Sekuritas dan Bursa AS (SEC) kembali menunjukkan sikap yang lebih terbuka terhadap ETF crypto. Hong Kong resmi izinkan ETF Bitcoin dan Ethereum.</p>
-        <a href="#" class="read-more">Baca Selengkapnya →</a>
-      </div>
-    </div>
-
-    <!-- PAGINATION -->
-    <div class="pager">
-      <a href="#">‹ Sebelumnya</a>
-      <a href="#" style="background:#f7931a;color:#0b0e14;">1</a>
-      <a href="#">2</a>
-      <a href="#">3</a>
-      <a href="#">Berikutnya ›</a>
-    </div>
+  <div class="wheel-wrapper">
+    <canvas id="wheelCanvas" width="600" height="600"></canvas>
+    <div class="pointer"></div>
   </div>
 
-  <!-- SIDEBAR -->
-  <div class="sidebar">
-
-    <!-- WIDGET KATEGORI -->
-    <div class="widget">
-      <h2>🏷️ Kategori Crypto</h2>
-      <div class="tag-cloud">
-        <a href="#">₿ Bitcoin</a>
-        <a href="#">⟠ Ethereum</a>
-        <a href="#">🚀 Altcoin</a>
-        <a href="#">💧 DeFi</a>
-        <a href="#">🎨 NFT</a>
-        <a href="#">📰 News</a>
-        <a href="#">🪙 Crypto</a>
-        <a href="#">⛓️ Blockchain</a>
-      </div>
-    </div>
-
-    <!-- WIDGET POPULER -->
-    <div class="widget">
-      <h2>🔥 Populer</h2>
-      <ul>
-        <li><a href="#">Bitcoin Tembus $72.000, Analis Prediksi Reli</a></li>
-        <li><a href="#">Ethereum Upgrade Dencun Sukses Turunkan Gas Fee</a></li>
-        <li><a href="#">3 Altcoin Terbaik yang Siap Meledak</a></li>
-        <li><a href="#">NFT Marketplace Volume Naik 60%</a></li>
-        <li><a href="#">DeFi TVL Capai $100 Miliar</a></li>
-      </ul>
-    </div>
-
-    <!-- WIDGET IKLAN A-ADS -->
-    <div class="widget">
-      <h2>📢 Iklan</h2>
-      <div style="text-align:center;">
-        <div id="frame" style="width:100%;margin:auto;text-align:center;position:relative;z-index:1;">
-          <script>
-            window.TelegramAdsController = new TelegramAdsController();
-            window.TelegramAdsController.initialize({
-              pubId: "1018738",
-              appId: "8322",
-            });
-          </script>
-        </div>
-      </div>
-    </div>
-
-    <!-- WIDGET SEARCH -->
-    <div class="widget">
-      <h2>🔍 Cari</h2>
-      <form style="display:flex;gap:8px;">
-        <input type="text" placeholder="Cari crypto..." style="flex:1;padding:8px 12px;border-radius:30px;border:1px solid #2a3340;background:#1e2632;color:#d6dee7;">
-        <button type="submit" style="padding:8px 16px;border-radius:30px;border:none;background:#f7931a;color:#0b0e14;font-weight:700;cursor:pointer;">Cari</button>
-      </form>
-    </div>
+  <div class="controls">
+    <button class="btn btn-spin" id="spinBtn">🎰 Putar</button>
+    <button class="btn btn-reset" id="resetBtn">↺ Reset</button>
   </div>
 
-  <div class="clear"></div>
+  <div class="result-box" id="resultBox">
+    <div class="result-text" id="resultText">🔄 Siap spin?</div>
+    <div class="result-sub" id="resultSub">Klik tombol atau tap roda</div>
+  </div>
+
+  <div class="history" id="history"></div>
 </div>
 
-<!-- FOOTER -->
-<div class="footer">
-  &copy; 2026 CryptoInsight - Theme by ZheALgo
-</div>
+<script>
+// ===== DATA HADIAH CRYPTO =====
+const prizes = [
+  { label: '0.01 BTC', color: '#f7931a', icon: '₿' },
+  { label: '0.1 ETH', color: '#627eea', icon: '⟠' },
+  { label: '10 SOL', color: '#9945ff', icon: '◎' },
+  { label: '100 DOGE', color: '#c2a633', icon: '🐕' },
+  { label: '1,000 PEPE', color: '#4caf50', icon: '🐸' },
+  { label: '50 USDT', color: '#26a17b', icon: '💵' },
+  { label: '🧧 Lucky', color: '#e74c3c', icon: '🧧' },
+  { label: '💎 Gems', color: '#3498db', icon: '💎' }
+];
 
+// ===== SETUP CANVAS =====
+const canvas = document.getElementById('wheelCanvas');
+const ctx = canvas.getContext('2d');
+const segments = prizes.length;
+const arcSize = (2 * Math.PI) / segments;
+const radius = 280;
+
+let currentAngle = 0;
+let isSpinning = false;
+let history = [];
+
+// ===== DRAW WHEEL =====
+function drawWheel(rotation) {
+  ctx.clearRect(0, 0, 600, 600);
+  
+  for (let i = 0; i < segments; i++) {
+    const startAngle = rotation + i * arcSize;
+    const endAngle = startAngle + arcSize;
+    const prize = prizes[i];
+    
+    // draw segment
+    ctx.beginPath();
+    ctx.moveTo(300, 300);
+    ctx.arc(300, 300, radius, startAngle, endAngle);
+    ctx.closePath();
+    ctx.fillStyle = prize.color;
+    ctx.fill();
+    ctx.strokeStyle = '#1a1f2e';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    // draw text
+    ctx.save();
+    ctx.translate(300, 300);
+    ctx.rotate(startAngle + arcSize / 2);
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillStyle = '#fff';
+    ctx.font = 'bold 18px Arial';
+    ctx.shadowColor = 'rgba(0,0,0,0.5)';
+    ctx.shadowBlur = 6;
+    ctx.fillText(prize.icon + ' ' + prize.label, 190, 0);
+    ctx.restore();
+  }
+
+  // center circle
+  ctx.beginPath();
+  ctx.arc(300, 300, 40, 0, 2 * Math.PI);
+  ctx.fillStyle = '#111a24';
+  ctx.fill();
+  ctx.strokeStyle = '#f7931a';
+  ctx.lineWidth = 3;
+  ctx.stroke();
+  
+  ctx.fillStyle = '#f7931a';
+  ctx.font = 'bold 22px Arial';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.shadowColor = 'transparent';
+  ctx.fillText('🎯', 300, 300);
+}
+
+// ===== GET RESULT =====
+function getResult(rotation) {
+  const normalized = ((rotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
+  const segmentIndex = Math.floor(((2 * Math.PI - normalized) % (2 * Math.PI)) / arcSize);
+  return segmentIndex % segments;
+}
+
+// ===== SPIN =====
+function spin() {
+  if (isSpinning) return;
+  isSpinning = true;
+  document.getElementById('spinBtn').disabled = true;
+  document.getElementById('resultText').textContent = '🌀 Memutar...';
+  document.getElementById('resultBox').classList.add('spinning');
+
+  const extraSpins = 3 + Math.random() * 5;
+  const targetAngle = currentAngle + extraSpins * 2 * Math.PI + (Math.random() * 2 * Math.PI);
+  const duration = 4000 + Math.random() * 1500;
+  const startAngle = currentAngle;
+  const startTime = performance.now();
+
+  function animate(time) {
+    const elapsed = time - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    // easing: cubic-bezier
+    const ease = 1 - Math.pow(1 - progress, 3);
+    const current = startAngle + (targetAngle - startAngle) * ease;
+    
+    drawWheel(current);
+    
+    if (progress < 1) {
+      requestAnimationFrame(animate);
+    } else {
+      currentAngle = targetAngle;
+      const resultIndex = getResult(currentAngle);
+      const prize = prizes[resultIndex];
+      const resultText = `${prize.icon} ${prize.label}`;
+      
+      document.getElementById('resultText').textContent = resultText;
+      document.getElementById('resultSub').textContent = `🎉 Selamat! Kamu mendapat ${prize.label}`;
+      document.getElementById('resultBox').classList.remove('spinning');
+      
+      // history
+      history.unshift(resultText);
+      if (history.length > 10) history.pop();
+      updateHistory();
+      
+      isSpinning = false;
+      document.getElementById('spinBtn').disabled = false;
+    }
+  }
+  requestAnimationFrame(animate);
+}
+
+// ===== UPDATE HISTORY =====
+function updateHistory() {
+  const container = document.getElementById('history');
+  container.innerHTML = history.map(h => `<span>${h}</span>`).join('');
+}
+
+// ===== RESET =====
+function reset() {
+  if (isSpinning) return;
+  currentAngle = 0;
+  drawWheel(0);
+  document.getElementById('resultText').textContent = '🔄 Siap spin?';
+  document.getElementById('resultSub').textContent = 'Klik tombol atau tap roda';
+  history = [];
+  updateHistory();
+}
+
+// ===== CLICK/TAP EVENT =====
+canvas.addEventListener('click', spin);
+document.getElementById('spinBtn').addEventListener('click', spin);
+document.getElementById('resetBtn').addEventListener('click', reset);
+
+// ===== KEYBOARD =====
+document.addEventListener('keydown', (e) => {
+  if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); spin(); }
+  if (e.key === 'r') reset();
+});
+
+// ===== DRAW INITIAL =====
+drawWheel(0);
+</script>
 </body>
 </html>
