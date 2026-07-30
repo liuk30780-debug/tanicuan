@@ -1,96 +1,277 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mini App Gue</title>
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      font-family: system-ui, sans-serif;
-      background: var(--tg-theme-bg-color, #ffffff);
-      color: var(--tg-theme-text-color, #000000);
-      padding: 20px;
-      min-height: 100vh;
-    }
-    .container {
-      max-width: 400px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    h1 { font-size: 24px; margin-bottom: 10px; }
-    p { color: var(--tg-theme-hint-color, #888); margin-bottom: 20px; }
-    .card {
-      background: var(--tg-theme-secondary-bg-color, #f5f5f5);
-      border-radius: 16px;
-      padding: 20px;
-      margin-bottom: 15px;
-    }
-    button {
-      background: var(--tg-theme-button-color, #0088cc);
-      color: var(--tg-theme-button-text-color, #ffffff);
-      border: none;
-      padding: 14px 30px;
-      border-radius: 12px;
-      font-size: 16px;
-      font-weight: 600;
-      width: 100%;
-      cursor: pointer;
-      transition: opacity 0.2s;
-    }
-    button:active { opacity: 0.7; }
-    #counter { font-size: 48px; font-weight: 700; margin: 10px 0; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ===== META TAG CRYPTO ===== -->
+<meta name="keywords" content="Cryptocurrency, Bitcoin, Ethereum, Blockchain, Altcoin, DeFi, NFT, Crypto News, Trading, Investasi"/>
+<meta name="description" content="Blog tentang Cryptocurrency, Bitcoin, Ethereum, Altcoin, DeFi, NFT, dan berita crypto terkini. Informasi investasi crypto terpercaya."/>
+<meta name="category" content="Cryptocurrency"/>
+<meta property="og:category" content="Cryptocurrency"/>
+<meta name="news_keywords" content="Cryptocurrency, Bitcoin, Ethereum, Blockchain"/>
+<meta property="og:site_name" content="CryptoInsight - Berita Crypto Terkini"/>
+<meta property="og:keywords" content="Cryptocurrency, Bitcoin, Ethereum, Blockchain, Altcoin, DeFi, NFT"/>
+<meta property="og:section" content="Cryptocurrency"/>
+<meta property="article:section" content="Cryptocurrency"/>
+<meta property="og:tag" content="cryptocurrency"/>
+<meta property="og:tag" content="crypto"/>
+<meta property="og:tag" content="bitcoin"/>
+<meta property="og:tag" content="ethereum"/>
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="id_ID"/>
+<!-- ===== END META TAG CRYPTO ===== -->
+
+<!-- ===== JSON-LD CRYPTO ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "CryptoInsight - Berita Crypto Terkini",
+  "description": "Blog Cryptocurrency, Bitcoin, Ethereum, Altcoin, DeFi, NFT, dan berita crypto terkini",
+  "url": "https://namablog.blogspot.com/",
+  "inLanguage": "id-ID",
+  "about": {
+    "@type": "Thing",
+    "name": "Cryptocurrency"
+  },
+  "genre": ["Cryptocurrency", "Bitcoin", "Ethereum", "Blockchain", "Finance"]
+}
+</script>
+<!-- ===== END JSON-LD CRYPTO ===== -->
+
+<style>
+/* ===== CRYPTO STYLING ===== */
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b0e14;color:#d6dee7;font-family:Roboto,Arial,sans-serif;font-size:16px;line-height:1.7}
+a{color:#f7931a;text-decoration:none;transition:0.2s}
+a:hover{color:#ffb347}
+.post{background:#111a24;border:1px solid #1f2937;border-radius:16px;padding:22px;margin-bottom:25px}
+.post:hover{border-color:#f7931a}
+.post-title a{color:#e6edf5;font-size:24px;font-weight:700;text-decoration:none}
+.post-title a:hover{color:#f7931a}
+.label-info-th a{background:#f7931a;color:#0b0e14;border-radius:40px;padding:4px 16px;font-weight:700;text-transform:uppercase;font-size:11px;display:inline-block;margin:2px}
+.label-info-th a:hover{background:#ffb347}
+.sidebar .widget{background:#111a22;border-radius:14px;padding:18px;border:1px solid #1f2937;margin-bottom:20px}
+.sidebar h2{color:#f7931a;font-size:15px;text-transform:uppercase}
+#wrapper{background:#0b0e14;max-width:1100px;margin:0 auto;padding:20px}
+#header-wrapper{background:#111821;border-bottom:3px solid #f7931a;padding:20px 15px;text-align:center}
+#header-wrapper h1{font-size:28px;font-weight:800;color:#f7931a;letter-spacing:1px;text-transform:uppercase}
+#header-wrapper .desc{color:#8896a8;font-size:13px;margin-top:3px}
+#nav-crypto{background:#141b24;padding:10px 15px;border-bottom:1px solid #1f2937;text-align:center;overflow-x:auto;white-space:nowrap}
+#nav-crypto a{color:#b0c4d8;font-size:12px;font-weight:600;padding:4px 14px;border-radius:30px;border:1px solid transparent;display:inline-block;margin:2px;text-transform:uppercase;letter-spacing:0.3px}
+#nav-crypto a:hover,#nav-crypto a.active{color:#0b0e14;background:#f7931a;border-color:#f7931a}
+#main-wrapper{float:left;width:65%;padding:20px 0}
+#sidebar-wrapper{float:right;width:32%;padding:20px 0}
+@media screen and (max-width:880px){#main-wrapper,#sidebar-wrapper{float:none;width:100%}}
+.post-body{color:#c8d2de;font-size:16px;line-height:1.8}
+.post-body img{max-width:100%;border-radius:10px;margin:10px 0}
+.read-more{display:inline-block;background:#f7931a;color:#0b0e14;padding:5px 18px;border-radius:30px;font-weight:700;font-size:13px;margin-top:8px}
+.read-more:hover{background:#ffb347;color:#0b0e14}
+.blog-pager{text-align:center;padding:15px 0}
+.blog-pager a{background:#1e2632;padding:7px 20px;border-radius:30px;font-weight:600;margin:0 4px;border:1px solid #2a3340;color:#b0c4d8;display:inline-block}
+.blog-pager a:hover{background:#f7931a;color:#0b0e14;border-color:#f7931a}
+#footer-wrapper{background:#0d141c;text-align:center;padding:18px 0;border-top:1px solid #1f2937;margin-top:25px;color:#5a6a7a;font-size:13px}
+.clear{clear:both}
+@media screen and (max-width:640px){
+#header-wrapper h1{font-size:20px}
+.post{padding:14px;border-radius:12px}
+.post-title a{font-size:17px}
+.post-body{font-size:15px}
+#nav-crypto a{font-size:10px;padding:3px 10px}
+.sidebar .widget{padding:12px}
+.sidebar h2{font-size:13px}
+.container{padding:0 10px}
+}
+</style>
 </head>
 <body>
-  <div class="container">
-    <h1>🚀 Mini App Pertama</h1>
-    <p>Ini jalan di dalam Telegram!</p>
 
-    <div class="card">
-      <p>Klik tombol di bawah:</p>
-      <div id="counter">0</div>
-      <button onclick="handleClick()">➕ Tambah</button>
+<!-- HEADER -->
+<div id="header-wrapper">
+  <h1>CryptoInsight</h1>
+  <div class="desc">Berita Cryptocurrency, Bitcoin, Ethereum, Altcoin, DeFi, NFT Terkini</div>
+</div>
+
+<!-- NAVIGASI LABEL -->
+<div id="nav-crypto">
+  <a href="/" class="active">🏠 Home</a>
+  <a href="/search/label/Bitcoin">Bitcoin</a>
+  <a href="/search/label/Ethereum">Ethereum</a>
+  <a href="/search/label/Altcoin">Altcoin</a>
+  <a href="/search/label/DeFi">DeFi</a>
+  <a href="/search/label/NFT">NFT</a>
+  <a href="/search/label/News">News</a>
+  <a href="/search/label/Crypto">Crypto</a>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="wrapper">
+
+  <div id="main-wrapper">
+    <!-- POSTINGAN 1: BITCOIN -->
+    <div class="post">
+      <div class="label-info-th">
+        <a href="/search/label/Bitcoin">#Bitcoin</a>
+        <a href="/search/label/Crypto">#Crypto</a>
+      </div>
+      <h2 class="post-title"><a href="#">Bitcoin (BTC) Melonjak 15% dalam Sepekan</a></h2>
+      <div class="post-body">
+        <img src="https://images.unsplash.com/photo-1518546305927-5a555bb7020d?w=800" alt="Bitcoin" style="width:100%;border-radius:12px;margin:10px 0;">
+        <p style="font-size:18px;font-weight:bold;color:#f7931a;">🚀 Bitcoin kembali menjadi sorotan setelah harganya berhasil menembus level $72,000 dalam sepekan terakhir.</p>
+        <p>Pergerakan ini terjadi di tengah meningkatnya minat investor institusional dan arus masuk yang signifikan ke produk ETF Bitcoin spot di Amerika Serikat.</p>
+        <h3 style="color:#f7931a;">📊 Data On-Chain Menunjukkan Akumulasi Whale</h3>
+        <p>Data dari Glassnode menunjukkan bahwa alamat yang memiliki lebih dari 1.000 BTC telah menambah kepemilikan mereka sebesar 3% dalam 7 hari terakhir.</p>
+        <a class="read-more" href="#">Baca Selengkapnya →</a>
+      </div>
     </div>
 
-    <div class="card">
-      <button onclick="showAlert()">📢 Tampilkan Alert</button>
+    <!-- POSTINGAN 2: ETHEREUM -->
+    <div class="post">
+      <div class="label-info-th">
+        <a href="/search/label/Ethereum">#Ethereum</a>
+        <a href="/search/label/Crypto">#Crypto</a>
+      </div>
+      <h2 class="post-title"><a href="#">Ethereum (ETH) Siap Mengikuti Jejak Bitcoin?</a></h2>
+      <div class="post-body">
+        <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png?v=029" alt="Ethereum" style="width:100%;max-width:300px;border-radius:12px;margin:10px auto;display:block;">
+        <p style="font-size:18px;font-weight:bold;color:#f7931a;">🔥 Ethereum menunjukkan sinyal bullish setelah berhasil bertahan di atas level $3,500.</p>
+        <p>Dengan semakin berkembangnya ekosistem Layer 2 dan meningkatnya adopsi DeFi, banyak analis memprediksi bahwa ETH akan segera mengikuti jejak Bitcoin.</p>
+        <a class="read-more" href="#">Baca Selengkapnya →</a>
+      </div>
     </div>
 
-    <div class="card">
-      <button onclick="sendData()">📤 Kirim Data ke Bot</button>
+    <!-- POSTINGAN 3: ALTCOIN -->
+    <div class="post">
+      <div class="label-info-th">
+        <a href="/search/label/Altcoin">#Altcoin</a>
+        <a href="/search/label/Crypto">#Crypto</a>
+      </div>
+      <h2 class="post-title"><a href="#">3 Altcoin Terbaik yang Siap Meledak di Bulan Ini</a></h2>
+      <div class="post-body">
+        <img src="https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=800" alt="Altcoin" style="width:100%;border-radius:12px;margin:10px 0;">
+        <p style="font-size:18px;font-weight:bold;color:#f7931a;">💎 Altcoin mulai menarik perhatian para investor dengan potensi keuntungan 3x - 10x.</p>
+        <p>Berikut adalah 3 altcoin yang memiliki fundamental kuat dan sedang dalam fase akumulasi: Solana (SOL), Chainlink (LINK), dan Avalanche (AVAX).</p>
+        <a class="read-more" href="#">Baca Selengkapnya →</a>
+      </div>
+    </div>
+
+    <!-- POSTINGAN 4: DEFI -->
+    <div class="post">
+      <div class="label-info-th">
+        <a href="/search/label/DeFi">#DeFi</a>
+        <a href="/search/label/Crypto">#Crypto</a>
+      </div>
+      <h2 class="post-title"><a href="#">DeFi Summer 2.0? Total Value Locked (TVL) Mencapai $100 Miliar!</a></h2>
+      <div class="post-body">
+        <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800" alt="DeFi" style="width:100%;border-radius:12px;margin:10px 0;">
+        <p style="font-size:18px;font-weight:bold;color:#f7931a;">💰 DeFi kembali menjadi sorotan dengan Total Value Locked (TVL) yang menembus angka $100 miliar.</p>
+        <p>Ini adalah level tertinggi sejak tahun 2022, menandakan bahwa pasar DeFi kembali bergairah setelah melalui masa bearish yang panjang.</p>
+        <a class="read-more" href="#">Baca Selengkapnya →</a>
+      </div>
+    </div>
+
+    <!-- POSTINGAN 5: NFT -->
+    <div class="post">
+      <div class="label-info-th">
+        <a href="/search/label/NFT">#NFT</a>
+        <a href="/search/label/Crypto">#Crypto</a>
+      </div>
+      <h2 class="post-title"><a href="#">NFT Marketplace Bangkit Kembali! Volume Perdagangan Melonjak 60%</a></h2>
+      <div class="post-body">
+        <img src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=800" alt="NFT" style="width:100%;border-radius:12px;margin:10px 0;">
+        <p style="font-size:18px;font-weight:bold;color:#f7931a;">🎨 Pasar NFT menunjukkan tanda-tanda kebangkitan dengan volume perdagangan yang meningkat 60% dalam sebulan terakhir.</p>
+        <p>Blur, OpenSea, dan marketplace lainnya mencatat lonjakan aktivitas signifikan, didorong oleh proyek-proyek baru.</p>
+        <a class="read-more" href="#">Baca Selengkapnya →</a>
+      </div>
+    </div>
+
+    <!-- POSTINGAN 6: CRYPTO NEWS -->
+    <div class="post">
+      <div class="label-info-th">
+        <a href="/search/label/News">#News</a>
+        <a href="/search/label/Crypto">#Crypto</a>
+      </div>
+      <h2 class="post-title"><a href="#">Update Crypto Terkini: Regulasi, Adopsi, dan Proyek yang Harus Dipantau</a></h2>
+      <div class="post-body">
+        <img src="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?w=800" alt="Crypto News" style="width:100%;border-radius:12px;margin:10px 0;">
+        <p style="font-size:18px;font-weight:bold;color:#f7931a;">📰 Ringkasan berita crypto terbaru yang harus Anda ketahui hari ini.</p>
+        <p>Komisi Sekuritas dan Bursa AS (SEC) kembali menunjukkan sikap yang lebih terbuka terhadap ETF crypto. Hong Kong resmi izinkan ETF Bitcoin dan Ethereum.</p>
+        <a class="read-more" href="#">Baca Selengkapnya →</a>
+      </div>
+    </div>
+
+    <!-- PAGINATION -->
+    <div class="blog-pager">
+      <a href="#">‹ Sebelumnya</a>
+      <a href="#">1</a>
+      <a href="#" style="background:#f7931a;color:#0b0e14;">2</a>
+      <a href="#">3</a>
+      <a href="#">Berikutnya ›</a>
     </div>
   </div>
 
-  <script>
-    // ===== INISIALISASI TELEGRAM SDK =====
-    const tg = window.Telegram.WebApp;
-    tg.ready(); // Kasih tau Telegram kalo app udah siap
-    tg.expand(); // Expand ke full screen
+  <!-- SIDEBAR -->
+  <div id="sidebar-wrapper">
+    <div class="sidebar">
+      <!-- WIDGET KATEGORI CRYPTO -->
+      <div class="widget" style="background:#111a22;border-radius:14px;padding:18px;border:1px solid #1f2937;margin-bottom:20px;">
+        <h2 style="color:#f7931a;font-size:15px;text-transform:uppercase;border-bottom:2px solid #1f2937;padding-bottom:10px;margin-bottom:12px;">🏷️ Kategori Crypto</h2>
+        <div style="display:flex;flex-wrap:wrap;gap:5px;">
+          <a href="/search/label/Bitcoin" style="background:#1e2632;color:#b0c4d8;padding:4px 14px;border-radius:30px;font-size:12px;font-weight:600;border:1px solid #2a3340;text-decoration:none;display:inline-block;">₿ Bitcoin</a>
+          <a href="/search/label/Ethereum" style="background:#1e2632;color:#b0c4d8;padding:4px 14px;border-radius:30px;font-size:12px;font-weight:600;border:1px solid #2a3340;text-decoration:none;display:inline-block;">⟠ Ethereum</a>
+          <a href="/search/label/Altcoin" style="background:#1e2632;color:#b0c4d8;padding:4px 14px;border-radius:30px;font-size:12px;font-weight:600;border:1px solid #2a3340;text-decoration:none;display:inline-block;">🚀 Altcoin</a>
+          <a href="/search/label/DeFi" style="background:#1e2632;color:#b0c4d8;padding:4px 14px;border-radius:30px;font-size:12px;font-weight:600;border:1px solid #2a3340;text-decoration:none;display:inline-block;">💧 DeFi</a>
+          <a href="/search/label/NFT" style="background:#1e2632;color:#b0c4d8;padding:4px 14px;border-radius:30px;font-size:12px;font-weight:600;border:1px solid #2a3340;text-decoration:none;display:inline-block;">🎨 NFT</a>
+          <a href="/search/label/News" style="background:#1e2632;color:#b0c4d8;padding:4px 14px;border-radius:30px;font-size:12px;font-weight:600;border:1px solid #2a3340;text-decoration:none;display:inline-block;">📰 News</a>
+          <a href="/search/label/Crypto" style="background:#1e2632;color:#b0c4d8;padding:4px 14px;border-radius:30px;font-size:12px;font-weight:600;border:1px solid #2a3340;text-decoration:none;display:inline-block;">🪙 Crypto</a>
+        </div>
+      </div>
 
-    // ===== COUNTER =====
-    let count = 0;
-    function handleClick() {
-      count++;
-      document.getElementById('counter').textContent = count;
-      tg.HapticFeedback.impactOccurred('light'); // Getar dikit (buat HP)
-    }
+      <!-- WIDGET POPULER -->
+      <div class="widget" style="background:#111a22;border-radius:14px;padding:18px;border:1px solid #1f2937;margin-bottom:20px;">
+        <h2 style="color:#f7931a;font-size:15px;text-transform:uppercase;border-bottom:2px solid #1f2937;padding-bottom:10px;margin-bottom:12px;">🔥 Populer Crypto</h2>
+        <ul style="list-style:none;padding:0;">
+          <li style="padding:6px 0;border-bottom:1px solid #1c2530;font-size:14px;"><a href="#" style="color:#b0c4d8;text-decoration:none;">Bitcoin Tembus $72.000, Analis Prediksi Reli</a></li>
+          <li style="padding:6px 0;border-bottom:1px solid #1c2530;font-size:14px;"><a href="#" style="color:#b0c4d8;text-decoration:none;">Ethereum Upgrade Dencun Sukses Turunkan Gas Fee</a></li>
+          <li style="padding:6px 0;border-bottom:1px solid #1c2530;font-size:14px;"><a href="#" style="color:#b0c4d8;text-decoration:none;">3 Altcoin Terbaik yang Siap Meledak</a></li>
+          <li style="padding:6px 0;border-bottom:1px solid #1c2530;font-size:14px;"><a href="#" style="color:#b0c4d8;text-decoration:none;">NFT Marketplace Volume Naik 60%</a></li>
+          <li style="padding:6px 0;font-size:14px;"><a href="#" style="color:#b0c4d8;text-decoration:none;">DeFi TVL Capai $100 Miliar</a></li>
+        </ul>
+      </div>
 
-    // ===== SHOW ALERT =====
-    function showAlert() {
-      tg.showAlert('Halo dari Mini App!');
-    }
+      <!-- WIDGET IKLAN A-ADS -->
+      <div class="widget" style="background:#111a22;border-radius:14px;padding:18px;border:1px solid #1f2937;margin-bottom:20px;">
+        <h2 style="color:#f7931a;font-size:15px;text-transform:uppercase;border-bottom:2px solid #1f2937;padding-bottom:10px;margin-bottom:12px;">📢 Iklan</h2>
+        <div style="text-align:center;">
+          <!-- BEGIN AADS AD UNIT -->
+          <div id="frame" style="width:100%;margin:auto;text-align:center;position:relative;z-index:1;">
+            <iframe data-aa="2449670" src="//acceptable.a-ads.com/66764523/?size=Adaptive"
+                    style="border:0;padding:0;width:100%;max-width:728px;height:auto;min-height:60px;overflow:hidden;display:block;margin:0 auto;background:transparent;">
+            </iframe>
+          </div>
+          <!-- END AADS AD UNIT -->
+        </div>
+      </div>
 
-    // ===== KIRIM DATA KE BOT =====
-    function sendData() {
-      const data = JSON.stringify({ action: 'click', counter: count });
-      tg.sendData(data);
-      tg.showAlert('Data terkirim!');
-    }
+      <!-- WIDGET SEARCH -->
+      <div class="widget" style="background:#111a22;border-radius:14px;padding:18px;border:1px solid #1f2937;margin-bottom:20px;">
+        <h2 style="color:#f7931a;font-size:15px;text-transform:uppercase;border-bottom:2px solid #1f2937;padding-bottom:10px;margin-bottom:12px;">🔍 Cari Blog Ini</h2>
+        <form action="/search" style="display:flex;gap:8px;">
+          <input type="text" name="q" placeholder="Cari crypto..." style="flex:1;padding:8px 12px;border-radius:30px;border:1px solid #2a3340;background:#1e2632;color:#d6dee7;">
+          <button type="submit" style="padding:8px 16px;border-radius:30px;border:none;background:#f7931a;color:#0b0e14;font-weight:700;cursor:pointer;">Cari</button>
+        </form>
+      </div>
+    </div>
+  </div>
 
-    // ===== AMBIL DATA USER (OPSIONAL) =====
-    console.log('User:', tg.initDataUnsafe?.user);
-  </script>
+  <div class="clear"></div>
+</div>
+
+<!-- FOOTER -->
+<div id="footer-wrapper">
+  &copy; 2026 CryptoInsight - Theme by EXILUX
+</div>
+
 </body>
 </html>
